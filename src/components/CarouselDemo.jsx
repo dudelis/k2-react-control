@@ -44,7 +44,7 @@ export default class CarouselDemo extends React.Component {
     };
   }
   render() {
-    //1. Getting custom elements
+    console.log(this.state.slides);
     return (
       <div>
         <Carousel>{this.state.slides}</Carousel>
