@@ -11,23 +11,23 @@ export default class CarouselDemo extends React.Component {
     };
   }
   componentDidMount() {
-    //1. Make an OData call and get all the images
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://k2.denallix.com/api/odata/v3/FileTests");
-    SourceCode.Forms.XSRFHelper.setAntiXSRFHeader(xhr);
-    xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.send();
-    xhr.onload = function() {
-      if (xhr.status != 200) {
-        // analyze HTTP status of the response
-        alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
-      } else {
-        // show the result
-        console.log(xhr.response);
-        this.setState({ imageData: xhr.response.value });
-      }
-    };
+    // //1. Make an OData call and get all the images
+    // let xhr = new XMLHttpRequest();
+    // xhr.open("GET", "https://k2.denallix.com/api/odata/v3/FileTests");
+    // SourceCode.Forms.XSRFHelper.setAntiXSRFHeader(xhr);
+    // xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    // xhr.setRequestHeader("Accept", "application/json");
+    // xhr.send();
+    // xhr.onload = function() {
+    //   if (xhr.status != 200) {
+    //     // analyze HTTP status of the response
+    //     alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+    //   } else {
+    //     // show the result
+    //     console.log(xhr.response);
+    //     this.setState({ imageData: xhr.response.value });
+    //   }
+    // };
   }
   render() {
     //1. Getting custom elements
@@ -39,6 +39,7 @@ export default class CarouselDemo extends React.Component {
         </div>
       );
     });
+    console.log('This is child images: ' + childImages);
 
     return (
         <Carousel>
