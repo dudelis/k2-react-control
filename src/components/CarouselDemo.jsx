@@ -38,13 +38,17 @@ export default class CarouselDemo extends React.Component {
               </div>
             );
           });
-          this.setState({slides});
+          this.setState({ slides });
         }
       }
     };
   }
   render() {
     //1. Getting custom elements
-    return <Carousel>{this.state.slides}</Carousel>;
+    return (
+      <div>
+        <Carousel>{this.state.slides}</Carousel>
+      </div>
+    );
   }
 }
