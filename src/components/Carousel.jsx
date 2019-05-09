@@ -1,7 +1,6 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 
-
 export default class CarouselDemo extends React.Component {
   constructor(props) {
     super(props);
@@ -25,27 +24,23 @@ export default class CarouselDemo extends React.Component {
         alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
       } else {
         // show the result
-        console.log(xhr.response);
+        const json = JSON.parse(xhr.response);
         self.setState({ imageData: xhr.response.value });
       }
     };
   }
   render() {
     //1. Getting custom elements
-    const childImages = this.state.imageData.map(function(element) {
-      return (
-        <div>
-          <img src={element["FileProperty@odata.mediaReadLink"]} />
-          <p className="legend">{element.Name}</p>
-        </div>
-      );
-    });
-    console.log('This is child images: ' + childImages);
-
-    return (
-        <Carousel>
-            {childImages}
-        </Carousel>
-    )
+    if (childImages) {
+      const childImages = this.state.imageData.map(function(element) {
+        return (
+          <div>
+            <img src={element["FileProperty@odata.mediaReadLink"]} />
+            <p className="legend">{element.Name}</p>
+          </div>
+        );
+      });
+    }
+    return <Carousel>{childImages}</Carousel>;
   }
 }
