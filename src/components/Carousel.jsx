@@ -31,8 +31,9 @@ export default class CarouselDemo extends React.Component {
   }
   render() {
     //1. Getting custom elements
-    if (childImages) {
-      const childImages = this.state.imageData.map(function(element) {
+    let childImages = "";
+    if (this.state.imageData) {
+      childImages = this.state.imageData.map(function(element) {
         return (
           <div>
             <img src={element["FileProperty@odata.mediaReadLink"]} />
