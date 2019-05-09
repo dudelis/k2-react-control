@@ -1,4 +1,6 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 export default class CarouselDemo extends React.Component {
@@ -6,7 +8,8 @@ export default class CarouselDemo extends React.Component {
     super(props);
 
     this.state = {
-      imageData: []
+      imageData: [],
+      slides: null
     };
   }
   componentDidMount() {
@@ -26,22 +29,22 @@ export default class CarouselDemo extends React.Component {
         // show the result
         const json = JSON.parse(xhr.response);
         self.setState({ imageData: xhr.response.value });
+        if (xhr.response.value) {
+          const slides = xhr.response.value.map(function(element) {
+            return (
+              <div>
+                <img src={element["FileProperty@odata.mediaReadLink"]} />
+                <p className="legend">{element.Name}</p>
+              </div>
+            );
+          });
+          this.setState({slides});
+        }
       }
     };
   }
   render() {
     //1. Getting custom elements
-    let childImages = null;
-    if (this.state.imageData) {
-      childImages = this.state.imageData.map(function(element) {
-        return (
-          <div>
-            <img src={element["FileProperty@odata.mediaReadLink"]} />
-            <p className="legend">{element.Name}</p>
-          </div>
-        );
-      });
-    }
-    return <Carousel>{childImages}</Carousel>;
+    return <Carousel>{this.state.slides}</Carousel>;
   }
 }
