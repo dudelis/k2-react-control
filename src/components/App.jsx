@@ -1,11 +1,10 @@
 import React from "react";
 
-import MasonryLayout from './MasonryLayout';
-import Carousel from '../components/Carousel'
+import CarouselDemo from '../components/Carousel'
 
 const App = () => {
     return (
-        <Carouse />
+         <CarouselDemo />
     )
 }
 

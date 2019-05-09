@@ -1,9 +1,8 @@
 import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 
-export default class Carousel extends React.Component {
+export default class CarouselDemo extends React.Component {
   constructor(props) {
     super(props);
 
