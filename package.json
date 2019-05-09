@@ -21,6 +21,7 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-masonry-component": "^6.2.1",
+    "react-responsive-carousel": "^3.1.49",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
