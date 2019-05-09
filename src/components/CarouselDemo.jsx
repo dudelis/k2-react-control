@@ -31,7 +31,7 @@ export default class CarouselDemo extends React.Component {
   }
   render() {
     //1. Getting custom elements
-    let childImages = "";
+    let childImages = null;
     if (this.state.imageData) {
       childImages = this.state.imageData.map(function(element) {
         return (
